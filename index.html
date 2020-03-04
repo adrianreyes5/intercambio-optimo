@@ -65,6 +65,19 @@
         }
       }
 
+
+      function salida(denominaciones, monedas, monto) {
+        //Calculo de promedio y monedas
+        const salida = calcu(denominaciones, monedas, monto);
+
+        console.log(
+          "  " +
+            salida.promedio +
+            "  " +
+            salida.cant_monedas
+        );
+      }
+
       function calcu(denominaciones, monedas, factura) {
         let faltante_pagar = factura;
         let cant_monedas = 0;
@@ -124,18 +137,6 @@
         promedio = aux_promedio.toFixed(2);
 
         return { cant_monedas, promedio };
-      }
-
-      function salida(denominaciones, monedas, monto) {
-        //Calculo de promedio y monedas
-        const salida = calcu(denominaciones, monedas, monto);
-
-        console.log(
-          "  " +
-            salida.promedio +
-            "  " +
-            salida.cant_monedas
-        );
       }
     </script>
   </body>
