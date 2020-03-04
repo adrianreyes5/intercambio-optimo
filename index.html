@@ -17,7 +17,6 @@
       let monto = 0;
       let denominaciones = 0;
       let monedas = [];
-      let factura;
 
       function readSingleFile(evt) {
         //Leyendo archivo de texto
@@ -35,7 +34,7 @@
           };
           r.readAsText(f);
         } else {
-          alert("Failed to load file");
+          alert("Error al cargar archivo");
         }
       }
 
@@ -45,9 +44,6 @@
 
       function casos(file) {
         let num_casos = 0;
-        let num_denominacion = 0;
-        let aux;
-        let cont = 3;
         num_casos = file[0];
 
         for (let i = 1; i <= num_casos; i++) {
@@ -78,8 +74,8 @@
         );
       }
 
-      function calcu(denominaciones, monedas, factura) {
-        let faltante_pagar = factura;
+      function calcu(denominaciones, monedas, monto) {
+        let faltante_pagar = monto;
         let cant_monedas = 0;
         let vuelto;
         let aux_promedio = 0;
@@ -103,7 +99,7 @@
               acum = acum + monedas[i];
               // console.log("pago con " + monedas[i]);
               cant_monedas++;
-              vuelto = acum - factura;
+              vuelto = acum - monto;
               break;
             }
           }
@@ -114,7 +110,7 @@
               // console.log("pago con " + monedas[i]);
               acum = acum + monedas[i];
               cant_monedas++;
-              vuelto = monedas[i] - factura;
+              vuelto = monedas[i] - monto;
               break;
             }
           }
